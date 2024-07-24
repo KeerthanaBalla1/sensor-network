@@ -1,0 +1,41 @@
+import math
+import sys
+
+def calculate_distance(x1,x2,y1,y2):
+    return math.sqrt(((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)))
+
+def is_inside_circle(c1,c2,radius,x,y):
+    return ((x-c1)*(x-c1)) + ((y-c2)*(y-c2)) <= radius * radius
+ 
+def main():
+    
+    ArgLength = len(sys.argv)
+    
+    n = int(sys.argv[1])
+    Maximum_Distance = int(sys.argv[2])
+    
+    Points = []
+    Answer = []
+    X_Cord = []
+    Y_Cord = []
+    def dist(x1, y1, x2, y2):
+        return ((x1 - x2)**2 + (y1 - y2)**2)**0.5
+
+def main():
+    n, d = map(int, input().split())
+    coords = []
+    for i in range(n):
+        x, y = map(int, input().split())
+        coords.append((x, y))
+    res = []
+    for i in range(n):
+        for j in range(i + 1, n):
+            if dist(coords[i][0], coords[i][1], coords[j][0], coords[j][1]) <= d:
+                res.append(i + 1)
+                res.append(j + 1)
+    print(len(res)//2)
+    for i in range(0, len(res), 2):
+        print(res[i], res[i+1])
+
+if __name__ == "_main_":
+    main()
